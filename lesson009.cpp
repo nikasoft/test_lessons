@@ -46,14 +46,6 @@ int main()
     my_friends_car.info();
     my_car.info();
 
-    // which car is better
-
-    // if (
-    //     my_car.power > my_friends_car.power &&
-    //     my_car.year > my_friends_car.year &&
-    //     my_car.price > my_friends_car.price &&
-    //     my_car.sport > my_friends_car.sport
-    //     )
     if (my_car.isBetter(my_friends_car))
         cout << "My car is better!"<<endl;
 
