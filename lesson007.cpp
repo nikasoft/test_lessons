@@ -26,20 +26,18 @@ class Player{
         void show(){
             cout << skin;
         }
-}
-
-
-    Medic (string der_Name, unsigned short iks, unsigned short igrik, '+')
+        Medic (string der_Name, unsigned short iks, unsigned short igrik, der_skin='+')
     {   
-        mane = der_Name;
+        name = der_Name;
         x = iks;           
         y = igrik;
+        skin = der_skin
  
     } 
     
     Assault (string der_Name, unsigned short iks, unsigned short igrik, '@')
     {   
-        mane = der_Name;
+        name = der_Name;
         x = iks;           
         y = igrik;
 
@@ -47,7 +45,7 @@ class Player{
 
     Sniper (string der_Name, unsigned short iks, unsigned short igrik, '^')
     {   
-        mane = der_Name;
+        name = der_Name;
         x = iks;           
         y = igrik;
 
@@ -55,11 +53,15 @@ class Player{
 
     Mechanic (string der_Name, unsigned short iks, unsigned short igrik, '%')
     {   
-        mane = der_Name;
+        name = der_Name;
         x = iks;           
         y = igrik;
 
     } 
+
+};
+
+
 int showMap()
     {
        unsigned short x;           
@@ -104,9 +106,9 @@ int main(){
     //    8 . . . . . . . . . . . . . . . . . . . .
     //    9 . . . . . . . . . . . . . . . . . . . .
     //    0 . . . . . . . . . . . . . . . . . . . .
-    Medic ("medos",1,1);
-    Sniper s("spapic",10,10);
-
+    // Medic ("medos",1,1);
+    // Sniper s("spapic",10,10);
+    showMap();
 }
 
 // исправьте ошибки и допишите код так чтобы все пункты выполнялись.
