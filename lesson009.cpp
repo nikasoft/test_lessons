@@ -20,8 +20,9 @@ class Car
         {
             cout << power <<' '<< year << ' '<< price << ' ' << sport <<'\n';
         }
+/*   
         // данный метод будет сравнивать параметры текущего автомобиля с каким то другим
-        bool isBetter(Car other)
+        bool isBetter(Car other) //ВАРИАНТ 1
         {
             if (
                 power > other.power &&
@@ -37,24 +38,79 @@ class Car
                 return false;
             }
         }
+*/
+        //объявляем оператор > для нашего класса car
+        bool operator > (Car other) //ВАРИАНТ 2 ЛАКОНИЧНЫЙ
+        {
+             if (
+                power > other.power &&
+                year > other.year &&
+                price > other.price &&
+                sport > other.sport
+                )
+            {
+                return true;
+            }
+            else 
+            {
+                return false;
+            } 
+        }
+        
+        bool operator == (Car other) 
+        {
+             if (
+                power == other.power &&
+                year == other.year &&
+                price == other.price &&
+                sport == other.sport
+                )
+            {
+                return true;
+            }
+            else 
+            {
+                return false;
+            } 
+        }
+
+                bool operator < (Car other) 
+        {
+             if (
+                power || other.power &&
+                year || other.year &&
+                price || other.price &&
+                sport || other.sport
+                )
+            {
+                return true;
+            }
+            else 
+            {
+                return false;
+            } 
+        }
+
+
 };
 
 int main()
 {
     Car my_friends_car(60.5, 2001, 10000, 0);
-    Car my_car(200.0, 2020, 100000, 1);
+    Car my_car(60.5, 2000, 10000, 0);
     my_friends_car.info();
     my_car.info();
 
-    // which car is better
-
-    // if (
-    //     my_car.power > my_friends_car.power &&
-    //     my_car.year > my_friends_car.year &&
-    //     my_car.price > my_friends_car.price &&
-    //     my_car.sport > my_friends_car.sport
-    //     )
-    if (my_car.isBetter(my_friends_car))
-        cout << "My car is better!"<<endl;
+/*
+    if (my_car.isBetter(my_friends_car))  // ДЛЯ ВАРИАНТА 1
+        cout << "My car is better!"<<endl;// ДЛЯ ВАРИАНТА 1
+*/   
+    if (my_car > my_friends_car)            // ДЛЯ ВАРИАНТА 2
+        cout << "My car is better!"<<endl;  // ДЛЯ ВАРИАНТА 2
+    if (my_car == my_friends_car)            
+        cout << "My car is the same!"<<endl;
+    if (my_car < my_friends_car)            
+        cout << "My car is worse!"<<endl;
+    
 
 }
