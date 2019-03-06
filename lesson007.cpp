@@ -15,6 +15,7 @@ class Player{
                                              (1000000+ - god )
                                        */
         // координаты игрока на экране
+        
         unsigned short x;           
         unsigned short y;
         // скин - это то знак через который наш персонаш выводится на экране
@@ -23,60 +24,116 @@ class Player{
         // 2) вопрос - как называется все что мы объявили после public:?? **************** СВОЙСТВА КЛАССА
 
         // метод который выводит наш персонаж на экран
-        void show(){
-            cout << skin;
+        void show()
+        {
+            cout << name << " " << x << " " << y << " " << skin << endl;
         }
-        Medic (string der_Name, unsigned short iks, unsigned short igrik, der_skin='+')
+
+       unsigned short positionX(unsigned short k)
+       {
+           k = x;
+            return k;
+       } 
+       unsigned short positionY(unsigned short l)
+       {
+           
+           l = y;
+            return l;
+       } 
+
+      
+/* ------------------------------------------------------------------------------------------*/
+    Medic (string der_Name, unsigned short iks, unsigned short igrik, char der_skin)
     {   
         name = der_Name;
         x = iks;           
         y = igrik;
-        skin = der_skin
+        skin = der_skin;
  
     } 
     
-    Assault (string der_Name, unsigned short iks, unsigned short igrik, '@')
+    Assault (string der_Name, unsigned short iks, unsigned short igrik, char der_skin)
     {   
         name = der_Name;
         x = iks;           
         y = igrik;
-
+        skin = der_skin;
     }
 
-    Sniper (string der_Name, unsigned short iks, unsigned short igrik, '^')
+    Sniper (string der_Name, unsigned short iks, unsigned short igrik, char der_skin)
     {   
         name = der_Name;
         x = iks;           
         y = igrik;
-
+        skin = der_skin;
     }
 
-    Mechanic (string der_Name, unsigned short iks, unsigned short igrik, '%')
+    Mechanic (string der_Name, unsigned short iks, unsigned short igrik, char der_skin)
     {   
         name = der_Name;
         x = iks;           
         y = igrik;
-
+        skin = der_skin;
     } 
+/* ----------------------------------------------------------------------------------------*/  
 
 };
+/* ----------------Наследование--------------------- */
 
+    // class PlayerType : public Player{
 
-int showMap()
+    //     public:
+    //     PlayerType () : Player ()
+    //     {}
+
+    // };
+
+    /* -----------------конец наследования-------------------- */
+unsigned short i, j, k, l, a, b, c, d;
+// char face1, face2;
+ 
+/* Функция отображающая сетку*/
+int showMap(int a, int b)
     {
-       unsigned short x;           
-        unsigned short y;
-
-        for (x=0; x++; x<20)
+       unsigned short x=20;             //размер поля
+        unsigned short y=20;            //размер поля
+        unsigned short count;           //счётчик 
+        a = a - 1;
+        b = b - 1;
+        c = c - 1;
+        d = d - 1;
+        cout << "   ";
+        /* Отображаес нумерацию по Х*/
+        for (i=1; i<=20;i++) 
             {
-               for (y=0; y++; y<20) 
+               count = i;
+               if (count <= 9) cout << count << "  ";
+               else cout << (count % 10) << "  ";
+
+            }
+        /* ------------------------ */
+        cout << endl;
+        /* Сетка и нумерация по У*/
+        for (i=0; i<x; i++)
+            {
+               count = i+1;
+               if (count <= 9) cout << count << "  ";
+               else cout << (count % 10) << "  ";
+               
+               for (j=0; j<y; j++) 
                {
-                   cout << '.';
+                   if (i == a && j == b) cout << "+  ";
+                   else if (i == c && j == d) cout << "^  ";
+                   else cout << ".  ";
                }
                cout << endl;
+
             }
+        /* ---------------------- */    
         cout << endl;
     }
+/* Конец функции */
+
 int main(){
     // 4) создайте одного медика с Medic m("medos",1,1)
     // 5) создайте одного снайпера с Sniper s("spapic",10,10)
@@ -106,9 +163,22 @@ int main(){
     //    8 . . . . . . . . . . . . . . . . . . . .
     //    9 . . . . . . . . . . . . . . . . . . . .
     //    0 . . . . . . . . . . . . . . . . . . . .
-    // Medic ("medos",1,1);
-    // Sniper s("spapic",10,10);
-    showMap();
+    Player m,s;
+    m.Medic("medos",1,1,'+');
+    s.Sniper("spapic",10,10,'^');
+    
+    // m.show(); //work
+    // s.show(); //work
+    // m.position();
+    // s.position();
+    // cout << m.positionX(k) << " " << m.positionY(l)<< endl;
+    // cout << s.positionX(k) << " " << s.positionY(l)<< endl;
+    a=m.positionX(k);
+    b=m.positionY(l);
+    c=s.positionX(k);
+    d=s.positionX(l);
+      // cout <<a<<' '<<b;
+    showMap(a,b);  //work
 }
 
 // исправьте ошибки и допишите код так чтобы все пункты выполнялись.
