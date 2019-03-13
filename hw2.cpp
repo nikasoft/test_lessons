@@ -13,8 +13,16 @@ class BikeOwner{
 
     }
 
-    void out(){
+    BikeOwner(string f, unsigned short y){
+        fullname = f;
+        year = y;
+    }
 
+    void out(){
+               cout << "===========================Biker==============================" << endl;
+               cout << "Fullname:\t" << fullname << endl;
+               cout << "Year:\t" << year << endl;
+               cout << "==============================================================" << endl;
     }
 };
 
@@ -34,6 +42,7 @@ class Bike{
 
 
            }
+
            Bike(string m, unsigned short y, float pwr, unsigned int pr, float w, string c, string br){
                model = m;
                 year = y;
@@ -50,7 +59,7 @@ class Bike{
                cout << "Power:\t" << power << endl;
                cout << "Price:\t" << price << endl;
                cout << "Weight:\t" << weight << endl;
-               cout << "Country:\t" << country << endl;
+               cout << "Country:" << country << endl;
                cout << "Brand:\t" << brand << endl;
                cout << "===========================Bike==============================" << endl;
 
@@ -58,18 +67,16 @@ class Bike{
 };
 
 int main(){
-    
+    /* исправить код
     Bike *pmy_bike = new Bike; // тоже самое Bike my_bike;
     pmy_bike->out(); //тоже самое my_bike.out();
-    // cout << sizeof(my_bike) << endl;
-    Bike *pzuckerberg_bike = new Bike;
-    pzuckerberg_bike -> out();
-    /*
-    Bike zuckerberg_bike("Harley facebitson", 2015, 250, 10000, 450, "Canada", "Harley");
-    zuckerberg_bike.out();
-    */
-    
+    Bike *pzuckerberg_bike = new Bike ("Harley Facebitson", ..;
+    BikeOwner* zuckberg = new BikeOwner("Mark Zuckerberg", 1965);
+
+        
+        pzuckerberg_bike -> out();
+           
     delete pzuckerberg_bike;
     delete pmy_bike;
-
+    */
 }
