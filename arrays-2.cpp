@@ -5,10 +5,12 @@ class Product{
     public:
         string name;
         int price;
+        string cathegory;
         Product(){};
-        Product(string n, int p){
+        Product(string n, int p, string cat){
             name = n;
             price = p;
+            cathegory = cat;
         }
 };
 
@@ -32,11 +34,12 @@ Product products[5];
 int min_price =0, max_price = 0;
 
 int main(){
-    products[0] = Product("Lottery Ticket", 50);
-    products[1] = Product("Ice Cream", 10);
-    products[2] = Product("Bisquit", 100);
-    products[3] = Product("Coffee", 5);
-    products[4] = Product("Water", 200);
+    //setlocale(LC_ALL,"RUS");
+    products[0] = Product("Lottery Ticket", 50, "Do not eat");
+    products[1] = Product("Ice Cream", 10,"Eat");
+    products[2] = Product("Bisquit", 100,"Eat");
+    products[3] = Product("Coffee", 5,"Eat");
+    products[4] = Product("Water", 200,"Eat");
 
     cout <<"From: ";
     cin >> min_price;
@@ -47,7 +50,7 @@ int main(){
 
     for (int i = 0; i < 5;i++){
         if (products[i].price <= max_price && products[i].price >= min_price)
-        cout << products[i].name << " - " << products[i].price << endl;
+        cout << products[i].name << " - " << products[i].price << " - " << products[i].cathegory << endl;
     }
     
 }
